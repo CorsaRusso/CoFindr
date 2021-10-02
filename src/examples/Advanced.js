@@ -6,7 +6,8 @@ import { NeuButton } from "neumorphism-react";
 const db = [
   {
     name: 'Richard Xu',
-    url: './img/richard.jpg'
+    description: 'yes',
+    url: 'https://i.imgur.com/TdUAjp2.jpg'
   },
   {
     name: 'Justin Gu',
@@ -18,11 +19,11 @@ const db = [
   },
   {
     name: 'George Shao',
-    url: './images/george.jpg'
+    url: 'https://i.imgur.com/OdIKGWG.jpeg'
   },
   {
     name: 'Mitchell Bradbury',
-    url: './img/dinesh.jpg'
+    url: 'https://i.imgur.com/k6nU3r2.jpg'
   }
 ]
 
@@ -61,13 +62,14 @@ function Advanced () {
     <div>
       <link href='https://fonts.googleapis.com/css?family=Damion&display=swap' rel='stylesheet' />
       <link href='https://fonts.googleapis.com/css?family=Alatsi&display=swap' rel='stylesheet' />
-      <h1>React Tinder Card</h1>
+      <h1>CoFindr</h1>
       <div className='cardContainer'>
       <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character, index) =>
           <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
               <h3>{character.name}</h3>
+              <h5>{character.description}</h5>
             </div>
           </TinderCard>
         )}
