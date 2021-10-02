@@ -11,11 +11,11 @@ const db = [
   },
   {
     name: 'Justin Gu',
-    url: './img/erlich.jpg'
+    url: 'https://i.imgur.com/8XVZnE8.jpeg'
   },
   {
-    name: 'Monica Hall',
-    url: './img/monica.jpg'
+    name: 'Amya Singhal',
+    url: 'https://i.imgur.com/BkvfcHk.jpg'
   },
   {
     name: 'George Shao',
@@ -23,6 +23,7 @@ const db = [
   },
   {
     name: 'Mitchell Bradbury',
+    description: 'Designer',
     url: 'https://i.imgur.com/k6nU3r2.jpg'
   }
 ]
