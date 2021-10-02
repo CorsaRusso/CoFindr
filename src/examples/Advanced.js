@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
-
+import { NeuDiv } from "neumorphism-react";
+import { NeuButton } from "neumorphism-react";
 const db = [
   {
     name: 'Richard Hendricks',
@@ -62,6 +63,7 @@ function Advanced () {
       <link href='https://fonts.googleapis.com/css?family=Alatsi&display=swap' rel='stylesheet' />
       <h1>React Tinder Card</h1>
       <div className='cardContainer'>
+      <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character, index) =>
           <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
@@ -69,10 +71,19 @@ function Advanced () {
             </div>
           </TinderCard>
         )}
+      </NeuDiv>
       </div>
       <div className='buttons'>
-        <button onClick={() => swipe('left')}>Swipe left!</button>
-        <button onClick={() => swipe('right')}>Swipe right!</button>
+          <NeuButton 
+            color="#c4ceff"
+            onClick={() => swipe('left')}>Swipe left!
+          </NeuButton>
+          <NeuButton 
+            color="#c4ceff"
+            onClick={() => swipe('right')}>Swipe right!
+          </NeuButton>
+
+        
       </div>
       {lastDirection ? <h2 key={lastDirection} className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText'>Swipe a card or press a button to get started!</h2>}
     </div>
