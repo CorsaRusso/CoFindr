@@ -53,15 +53,12 @@ h2 {
 .card {
   position: relative;
   background-color: #d1d8ff;
-  background: linear-gradient(#5f5f5f, #d6dbff);
   width: 80vw;
   max-width: 260px;
   height: 300px;
-  
   border-radius: 20px;
   background-size: cover;
   background-position: center;
-  
 }
 
 .cardContent {

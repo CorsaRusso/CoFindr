@@ -68,7 +68,7 @@ function Advanced () {
       <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character, index) =>
           <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-            <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
+            <div style={{backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), " + "url(" + character.url + ")"}} className='card'>
               <h3>{character.name}</h3>
               <h5>{character.description}</h5>
             </div>
