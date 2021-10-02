@@ -5,11 +5,11 @@ import { NeuDiv } from "neumorphism-react";
 import { NeuButton } from "neumorphism-react";
 const db = [
   {
-    name: 'Richard Hendricks',
+    name: 'Richard Xu',
     url: './img/richard.jpg'
   },
   {
-    name: 'Erlich Bachman',
+    name: 'Justin Gu',
     url: './img/erlich.jpg'
   },
   {
@@ -17,11 +17,11 @@ const db = [
     url: './img/monica.jpg'
   },
   {
-    name: 'Jared Dunn',
-    url: './img/jared.jpg'
+    name: 'George Shao',
+    url: './images/george.jpg'
   },
   {
-    name: 'Dinesh Chugtai',
+    name: 'Mitchell Bradbury',
     url: './img/dinesh.jpg'
   }
 ]
