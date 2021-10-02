@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
+import { NeuDiv } from "neumorphism-react";
 
 const db = [
   {
@@ -44,6 +45,7 @@ function Simple () {
       <link href='https://fonts.googleapis.com/css?family=Alatsi&display=swap' rel='stylesheet' />
       <h1>React Tinder Card</h1>
       <div className='cardContainer'>
+      <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character) =>
           <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
@@ -51,6 +53,7 @@ function Simple () {
             </div>
           </TinderCard>
         )}
+      </NeuDiv>
       </div>
       {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />}
     </div>
