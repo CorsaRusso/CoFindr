@@ -50,7 +50,7 @@ const db = [
   },
   {
     name: 'Richard Xu',
-    description: 'Designer',
+    description: 'Financial Manager',
     url: 'https://i.imgur.com/TdUAjp2.jpg',
     contact: 'https://www.instagram.com/richxrd_xu/'
   },
@@ -134,10 +134,20 @@ function Advanced () {
       <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character, index) =>
           <div>
-            <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name, character.contact)} onCardLeftScreen={() => outOfFrame(character.name)}>
+            <TinderCard 
+            ref={childRefs[index]} 
+            className='swipe' 
+            key={character.name} 
+            onSwipe={(dir) => swiped(dir, character.name, character.contact)} 
+            onCardLeftScreen={() => outOfFrame(character.name)}>
               <div style={{backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), " + "url(" + character.url + ")"}} className='card'>
-                <h3>{character.name}</h3>
-                <h5 onclick="alert('test')">{character.description}</h5>
+
+              <h3
+              onClick={() => alert("test")}>
+                {character.name}
+              </h3>
+
+              <h5>{character.description}</h5>
               </div>
             </TinderCard>
           </div>

@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CoFindr",
+  "name": "Cofindr",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "cofindr_64.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
       "src": "logo192.png",
-      "type": "image/png",
+      "type": "https://i.imgur.com/TRBs3bS.png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://i.imgur.com/HCzjcPH.png",
       "type": "image/png",
       "sizes": "512x512"
     }
