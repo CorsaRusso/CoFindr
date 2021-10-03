@@ -3,6 +3,9 @@ import React, { useState, useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
 import { NeuDiv } from "neumorphism-react";
 import { NeuButton } from "neumorphism-react";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 const db = [
   {
     name: 'Richard Xu',
@@ -41,6 +44,15 @@ function Advanced () {
     console.log('removing: ' + nameToDelete)
     setLastDirection(direction)
     alreadyRemoved.push(nameToDelete)
+    if (direction === "right"){
+      notify(nameToDelete)
+    }
+  }
+
+  // const notify = (name) => 
+
+  function notify(name){
+    toast("You've connected with " + name);
   }
 
   const outOfFrame = (name) => {
@@ -89,6 +101,7 @@ function Advanced () {
         
       </div>
       {lastDirection ? <h2 key={lastDirection} className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText'>Swipe a card or press a button to get started!</h2>}
+      <ToastContainer />
     </div>
   )
 }
