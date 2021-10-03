@@ -4,31 +4,83 @@ import TinderCard from 'react-tinder-card'
 import { NeuDiv } from "neumorphism-react";
 import { NeuButton } from "neumorphism-react";
 import { ToastContainer, toast } from 'react-toastify';
+import NotificationContent from '../NotificationContent';
 
 import 'react-toastify/dist/ReactToastify.css';
 const db = [
+  { 
+    name: 'Jisoo Kim',
+    description: 'Artist',
+    url: 'https://cdn.discordapp.com/attachments/893904551265067018/894040557788229692/image1.jpg',
+    contact: 'https://www.instagram.com/sooyaaa__/'
+ 
+ },
+  { 
+    name: 'Lisa Manoban',
+    description: 'Artist',
+    url: 'https://cdn.discordapp.com/attachments/893904551265067018/894040557469433886/image0.jpg',
+    contact: 'https://www.instagram.com/lalalalisa_m/'
+ 
+ },
+  { 
+    name: 'Sana Minatozaki',
+    description: 'Professional Dancer',
+    url: 'https://cdn.discordapp.com/attachments/893904551265067018/894034794680299580/2ZeWW_5f.png',
+    contact: 'https://www.instagram.com/twicetagram/'
+ 
+ },
+  {
+    name: 'Jennie Kim',
+    description: 'Financial Analyst',
+    url: 'https://cdn.discordapp.com/attachments/893904551265067018/894032646429110282/20211002_212112.jpg',
+    contact: 'https://www.instagram.com/jennierubyjane/'
+  },
+
+  {
+    name: 'Romain Grosjean',
+    description: 'Sound Engineer',
+    url: 'https://i.imgur.com/iz7UUb4.jpg',
+    contact: 'https://www.instagram.com/grosjeanromain/'
+  },
+  {
+    name: 'Zach Song',
+    description: 'Hedge Fund Manager',
+    url: 'https://cdn.discordapp.com/attachments/893904551265067018/894042220481638421/image0.jpg',
+    contact: 'https://www.linkedin.com/in/j-gu/'
+  },
   {
     name: 'Richard Xu',
-    description: 'yes',
-    url: 'https://i.imgur.com/TdUAjp2.jpg'
+    description: 'Designer',
+    url: 'https://i.imgur.com/TdUAjp2.jpg',
+    contact: 'https://www.instagram.com/richxrd_xu/'
   },
   {
     name: 'Justin Gu',
-    url: 'https://i.imgur.com/8XVZnE8.jpeg'
+    description: 'Software Developer',
+    url: 'https://i.imgur.com/8XVZnE8.jpeg',
+    contact: 'https://www.linkedin.com/in/j-gu/'
   },
   {
     name: 'Amya Singhal',
-    url: 'https://i.imgur.com/BkvfcHk.jpg'
+    description: 'Software Developer',
+    url: 'https://i.imgur.com/BkvfcHk.jpg',
+    contact: 'https://www.linkedin.com/in/amya-singhal-43b7791b3/'
   },
   {
     name: 'George Shao',
-    url: 'https://i.imgur.com/OdIKGWG.jpeg'
+    description: 'Software Engineer',
+    url: 'https://i.imgur.com/OdIKGWG.jpeg',
+    contact: 'https://www.linkedin.com/in/georgeshao/'
   },
   {
     name: 'Mitchell Bradbury',
-    description: 'Designer',
-    url: 'https://i.imgur.com/k6nU3r2.jpg'
+    description: 'Market Analyst',
+    url: 'https://i.imgur.com/k6nU3r2.jpg',
+    contact: 'https://www.linkedin.com/in/mitchell-bradbury-1b60a71b1/'
   }
+
+
+
 ]
 
 const alreadyRemoved = []
@@ -40,19 +92,19 @@ function Advanced () {
 
   const childRefs = useMemo(() => Array(db.length).fill(0).map(i => React.createRef()), [])
 
-  const swiped = (direction, nameToDelete) => {
+  const swiped = (direction, nameToDelete, contact) => {
     console.log('removing: ' + nameToDelete)
     setLastDirection(direction)
     alreadyRemoved.push(nameToDelete)
     if (direction === "right"){
-      notify(nameToDelete)
+      notify(nameToDelete, contact)
     }
   }
 
   // const notify = (name) => 
 
-  function notify(name){
-    toast("You've connected with " + name);
+  function notify(name, contact){
+    toast(<NotificationContent name={name} contact={contact}/>);
   }
 
   const outOfFrame = (name) => {
@@ -71,6 +123,8 @@ function Advanced () {
     }
   }
 
+
+
   return (
     <div>
       <link href='https://fonts.googleapis.com/css?family=Damion&display=swap' rel='stylesheet' />
@@ -79,12 +133,14 @@ function Advanced () {
       <div className='cardContainer'>
       <NeuDiv color="#c4ceff"  radius={25}>
         {characters.map((character, index) =>
-          <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-            <div style={{backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), " + "url(" + character.url + ")"}} className='card'>
-              <h3>{character.name}</h3>
-              <h5>{character.description}</h5>
-            </div>
-          </TinderCard>
+          <div>
+            <TinderCard ref={childRefs[index]} className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name, character.contact)} onCardLeftScreen={() => outOfFrame(character.name)}>
+              <div style={{backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), " + "url(" + character.url + ")"}} className='card'>
+                <h3>{character.name}</h3>
+                <h5 onclick="alert('test')">{character.description}</h5>
+              </div>
+            </TinderCard>
+          </div>
         )}
       </NeuDiv>
       </div>
