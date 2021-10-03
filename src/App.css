@@ -92,7 +92,7 @@ h2 {
   height: 28px;
   justify-content: center;
   display: flex;
-  color: #fff;
+  color: rgb(53, 53, 53);
   animation-name: popup;
   animation-duration: 800ms;
 }
@@ -107,7 +107,7 @@ h2 {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  color: #fff;
+  color: rgb(53, 53, 53);
   font-size: 18px;
 
   transition: 200ms;
